@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import { add } from "./StringCalculator";
 import './App.css';
 
-function App() {
+const StringCalculatorApp = () => {
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      setError(null);
+      const sum = add(input);
+      setResult(sum);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>String Calculator</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter numbers (comma or new line separated)"
+          className="input-box"
+        />
+        <button type="submit" className="calculate-button">Calculate</button>
+      </form>
+      {result !== null && <h3>Result: {result}</h3>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
-}
+};
 
-export default App;
+export default StringCalculatorApp;
