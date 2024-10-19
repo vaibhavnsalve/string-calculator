@@ -12,6 +12,13 @@ export const add = (numbers) => {
     }
   
     const numArr = numbers.split(delimiter).map(Number);
+    const negatives = numArr.filter(num => num < 0);
+
+    if (negatives.length > 0) {
+        throw new Error(`negative numbers not allowed: ${negatives.join(", ")}`);
+      }
+
+      
     return numArr.reduce((acc, curr) => acc + curr, 0);
   };
   
