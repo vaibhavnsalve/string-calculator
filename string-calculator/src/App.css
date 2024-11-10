@@ -1,31 +1,40 @@
 .container {
   text-align: center;
   margin-top: 50px;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f9f9f9;
 }
 
 .input-box {
-  width: 300px;
-  padding: 10px;
-  margin: 20px;
-  font-size: 16px;
+ width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
   border-radius: 5px;
-  border: 2px solid #ccc;
+  border: 1px solid #ddd;
 }
 
 .calculate-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 .calculate-button:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
 .error-message {
-  color: red;
+  color: #d9534f;
+  font-weight: bold;
 }
