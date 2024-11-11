@@ -11,12 +11,15 @@ const StringCalculatorApp = () => {
     e.preventDefault();
     try {
       setError(null);
+      console.log("Input received:", input); 
       const sum = add(input);
       setResult(sum);
     } catch (err) {
       setError(err.message);
     }
   };
+  
+
 
   return (
     <div className="container">
@@ -38,3 +41,4 @@ const StringCalculatorApp = () => {
 };
 
 export default StringCalculatorApp;
+
